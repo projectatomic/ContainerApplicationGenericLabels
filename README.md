@@ -11,6 +11,7 @@ We are looking at two types of data here. Data used to describe how to RUN, INST
 
 Here are the list of names we have currently added:
 
+| Name        | Description                            |
 |-------------|----------------------------------------|
 | RUN         | Command required to run the image      |
 | UNINSTALL   | Command Required to uninstall the image|
