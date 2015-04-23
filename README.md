@@ -9,27 +9,27 @@ distribution specific.
 
 We are looking at two types of data here. 
 
- 1. Labels used to describe how to use the application/image
+1. Labels used to describe how to use the application/image
 
-| Name        | Description                            |
-|-------------|----------------------------------------|
-| RUN         | Command required to run the image|
-| UNINSTALL   | Command Required to uninstall the image|
-| INSTALL     | Command Required to install the image|
+ | Name        | Description                            |
+ |-------------|----------------------------------------|
+ | RUN         | Command required to run the image|
+ | UNINSTALL   | Command Required to uninstall the image|
+ | INSTALL     | Command Required to install the image|
 
- 2. Labels Names used to describe the application/image
+2. Labels Names used to describe the application/image
 
-| Name        | Description                            |
-|-------------|----------------------------------------|
-| Name        | Name of the Image|
-| Version     | Version of the image|
-| Release     | Release Number for this version|
-| Architecture| Architecture for the image|
-| License     | Image License|
-| Build Date  | Date/Time image was built|
-| Build Host  | Host Image was built on|
-| Vendor      | Owner of the image| 
-| URL         | Url with more information on the image|
-| Summary     | Short Description of the image|
-| Description | Detailed discription of the image|
+ | Name        | Description                            |
+ |-------------|----------------------------------------|
+ | Name        | Name of the Image|
+ | Version     | Version of the image|
+ | Release     | Release Number for this version|
+ | Architecture| Architecture for the image|
+ | License     | Image License|
+ | Build Date  | Date/Time image was built|
+ | Build Host  | Host Image was built on|
+ | Vendor      | Owner of the image| 
+ | URL         | Url with more information on the image|
+ | Summary     | Short Description of the image|
+ | Description | Detailed discription of the image|
 
