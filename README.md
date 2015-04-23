@@ -17,9 +17,9 @@ Here are the list of names we have currently added:
 
 We can also add the names from rpm -qi names
 
-| Name        | Name of the Image
-| Version     | Version of the image
-* Release     : Release Number for this version
+| Name        | Name of the Image |
+| Version     | Version of the image|
+| Release     | Release Number for this version|
 * Architecture: Architecture for the image
 * License     : Image License
 * Build Date  : Date/Time image was built
