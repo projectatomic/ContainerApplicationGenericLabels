@@ -13,23 +13,23 @@ Here are the list of names we have currently added:
 
 | Name        | Description                            |
 |-------------|----------------------------------------|
-| RUN         | Command required to run the image      |
+| RUN         | Command required to run the image|
 | UNINSTALL   | Command Required to uninstall the image|
-| INSTALL     | Command Required to install the image  |
+| INSTALL     | Command Required to install the image|
 
 We can also add the names from rpm -qi names
 
 | Name        | Description                            |
 |-------------|----------------------------------------|
 | Name        | Name of the Image|
-| Version     | Version of the image                   |
-| Release     | Release Number for this version        |
-| Architecture| Architecture for the image             |
-| License     | Image License                          |
-| Build Date  | Date/Time image was built              |
-| Build Host  | Host Image was built on                |
-| Vendor      | Owner of the image                     | 
-| URL         | Url with more information on the image |
-| Summary     | Short Description of the image         |
-| Description | Detailed discription of the image.     |
+| Version     | Version of the image|
+| Release     | Release Number for this version|
+| Architecture| Architecture for the image|
+| License     | Image License|
+| Build Date  | Date/Time image was built|
+| Build Host  | Host Image was built on|
+| Vendor      | Owner of the image| 
+| URL         | Url with more information on the image|
+| Summary     | Short Description of the image|
+| Description | Detailed discription of the image|
 
