@@ -11,20 +11,20 @@ We are looking at two types of data here. Data used to describe how to RUN, INST
 
 Here are the list of names we have currently added:
 
-RUN : Command required to run the image
-UNINSTALL: Command Required to uninstall the image
-INSTALL: Command Required to install the image
+ RUN : Command required to run the image
+ UNINSTALL: Command Required to uninstall the image
+ INSTALL: Command Required to install the image
 
 We can also add the names from rpm -qi names
 
-Name        : Name of the Image
-Version     : Version of the image
-Release     : Release Number for this version
-Architecture: Architecture for the image
-Liicense     : Image License
-Build Date  : Date/Time image was built
-Build Host  : Host Image was built on
-Vendor      :  Owner of the image
-URL         :  Url with more information on the image
-Summary     : Short Description of the image
-Description : Detailed discription of the image.
+ Name        : Name of the Image
+ Version     : Version of the image
+ Release     : Release Number for this version
+ Architecture: Architecture for the image
+ License     : Image License
+ Build Date  : Date/Time image was built
+ Build Host  : Host Image was built on
+ Vendor      :  Owner of the image
+ URL         :  Url with more information on the image
+ Summary     : Short Description of the image
+ Description : Detailed discription of the image.
