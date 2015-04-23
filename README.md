@@ -1,4 +1,4 @@
-# ContainerApplicationGenericLabels
+# Standard Container/Application Labels
 Default Containerized Application Labels used to document the application and/or image
 
 With the introduction of the [Atomic command](http://developerblog.redhat.com/2015/04/21/introducing-the-atomic-command/), we are accessing container image meta data to describe the purpose of the image or the application defined by the image.
