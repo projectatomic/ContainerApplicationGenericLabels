@@ -9,7 +9,7 @@ distribution specific.
 
 We are looking at two types of data here. 
 
-1. Labels used to describe how to use the application/image
+ 1. Labels used to describe how to use the application/image
 
 | Name        | Description                            |
 |-------------|----------------------------------------|
@@ -17,7 +17,7 @@ We are looking at two types of data here.
 | UNINSTALL   | Command Required to uninstall the image|
 | INSTALL     | Command Required to install the image|
 
-2. Labels Names used to describe the application/image
+ 2. Labels Names used to describe the application/image
 
 | Name        | Description                            |
 |-------------|----------------------------------------|
