@@ -4,7 +4,7 @@ Default Containerized Application Labels used to document the application and/or
 With the introduction of the [Atomic command](http://developerblog.redhat.com/2015/04/21/introducing-the-atomic-command/), we are accessing container image meta data to describe the purpose of the image or the application defined by the image.
 
 We would like to get concensus on default names.  Proposals have been made to namespace the label names defined
-in Docker.  
+in Docker.  If you would like to see additional names and desciptions added please open issues and send pull requests to update this readme.
 
 But we believe their should be some generic toplevel names defined that are not vendor specific, or
 distribution specific.  
