@@ -7,9 +7,9 @@ We would like to get concensus on default names.  Proposals have been made to na
 in Docker.  But we believe their should be some generic toplevel names defined that are not vendor specific, or
 distribution specific.  
 
-We are looking at two types of data here. Data used to describe how to RUN, INSTALL, UNINSTALL a container application/image and more generic data describing the contents of the image.
+We are looking at two types of data here. 
 
-Here are the list of names we have currently added:
+1. Labels used to describe how to use the application/image
 
 | Name        | Description                            |
 |-------------|----------------------------------------|
@@ -17,7 +17,7 @@ Here are the list of names we have currently added:
 | UNINSTALL   | Command Required to uninstall the image|
 | INSTALL     | Command Required to install the image|
 
-We can also add the names from rpm -qi names
+2. Labels Names used to describe the application/image
 
 | Name        | Description                            |
 |-------------|----------------------------------------|
