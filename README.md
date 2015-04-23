@@ -16,12 +16,12 @@ Here are the list of names we have currently added:
 | RUN         | Command required to run the image      |
 | UNINSTALL   | Command Required to uninstall the image|
 | INSTALL     | Command Required to install the image  |
-|-------------|----------------------------------------|
 
 We can also add the names from rpm -qi names
 
+| Name        | Description                            |
 |-------------|----------------------------------------|
-| Name        | Name of the Image                      |
+| Name        | Name of the Image|
 | Version     | Version of the image                   |
 | Release     | Release Number for this version        |
 | Architecture| Architecture for the image             |
@@ -32,4 +32,4 @@ We can also add the names from rpm -qi names
 | URL         | Url with more information on the image |
 | Summary     | Short Description of the image         |
 | Description | Detailed discription of the image.     |
-|-------------|----------------------------------------|
+
