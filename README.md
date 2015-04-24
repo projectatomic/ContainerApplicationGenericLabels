@@ -11,7 +11,7 @@ distribution specific.
 
 If you would like to see additional names and desciptions added please open issues and send pull requests to update this readme.
 
-We are looking at two types of data here. 
+The follwing types of data are being considered:
 
 1. Labels used to describe how to use the application/image
 
@@ -36,4 +36,9 @@ We are looking at two types of data here.
  | URL         | Url with more information on the image|
  | Summary     | Short Description of the image|
  | Description | Detailed discription of the image|
+
+3. Annotations with container configuration that is externally accesible, to clarify the extent to which a container image is a "black box". Rather than explicit fields, this is a pattern for the key (in likeness to an Object Identifiers (OID) or the Java package naming convention).
+
+ | `com.example.webserver.memory.max` | Maximum memory setting for "example.com" organization's webserver |
+ | `com.example.webserver.memory.min` | Minimum memory setting for "example.com" organization's webserver |
 
