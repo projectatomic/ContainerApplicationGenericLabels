@@ -17,25 +17,25 @@ The following types of data are being considered:
 
  | Name        | Description                            |
  |-------------|----------------------------------------|
- | RUN         | Command required to run the image|
- | UNINSTALL   | Command Required to uninstall the image|
- | INSTALL     | Command Required to install the image|
+ | run         | Command required to run the image|
+ | uninstall   | Command Required to uninstall the image|
+ | install     | Command Required to install the image|
 
 2. Labels Names used to describe the application/image
 
  | Name        | Description                            |
  |-------------|----------------------------------------|
- | Name        | Name of the Image|
- | Version     | Version of the image|
- | Release     | Release Number for this version|
- | Architecture| Architecture for the image|
- | License     | Image License|
- | BuildDate  | Date/Time image was built|
- | BuildHost  | Host Image was built on|
- | Vendor      | Owner of the image| 
- | URL         | Url with more information on the image|
- | Summary     | Short Description of the image|
- | Description | Detailed description of the image|
+ | name        | Name of the Image|
+ | version     | Version of the image|
+ | release     | Release Number for this version|
+ | architecture| Architecture for the image|
+ | license     | Image License|
+ | buildDate  | Date/Time image was built|
+ | buildHost  | Host Image was built on|
+ | vendor      | Owner of the image| 
+ | url         | Url with more information on the image|
+ | summary     | Short Description of the image|
+ | description | Detailed description of the image|
 
 3. Annotations with container configuration that is externally accessible, to clarify the extent to which a container image is a "black box". Rather than explicit fields, this is a pattern for the key (in likeness to an Object Identifiers (OID) or the Java package naming convention).
 
