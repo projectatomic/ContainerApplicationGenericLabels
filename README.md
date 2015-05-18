@@ -39,12 +39,3 @@ The following types of data are being considered:
  | VcsType    | The type of version control used by the container source. Generally one of git, hg, svn, bzr, cvs|
  | VcsUrl     | URL of the version control repository|
  | VcsRef     | A 'reference' within the version control repository; e.g. a git commit, or a subversion branch|
-
-
-3. Annotations with container configuration that is externally accessible, to clarify the extent to which a container image is a "black box". Rather than explicit fields, this is a pattern for the key (in likeness to an Object Identifiers (OID) or the Java package naming convention).
-
- | Sample Name        | Sample Description              |
- |--------------------|---------------------------------|
- | `com.example.webserver.memory.max` | Maximum memory setting for "example.com" organization's webserver |
- | `com.example.webserver.memory.min` | Minimum memory setting for "example.com" organization's webserver |
-
