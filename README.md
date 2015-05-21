@@ -22,6 +22,7 @@ The following types of data are being considered:
  | UNINSTALL   | Command to uninstall the image|
  | INSTALL     | Command to install the image|
  | STOP        | Command to execute before stopping container|
+ | DEBUG       | Command to run the image with debugging turned on|
 
 2. Labels Names used to describe the application/image
 
