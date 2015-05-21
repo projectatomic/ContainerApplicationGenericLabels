@@ -17,9 +17,9 @@ The following types of data are being considered:
 
  | Name        | Description                            |
  |-------------|----------------------------------------|
- | RUN         | Command required to run the image|
- | UNINSTALL   | Command Required to uninstall the image|
- | INSTALL     | Command Required to install the image|
+ | RUN         | Command to run the image|
+ | UNINSTALL   | Command to uninstall the image|
+ | INSTALL     | Command to install the image|
 
 2. Labels Names used to describe the application/image
 
