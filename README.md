@@ -26,17 +26,30 @@ The following types of data are being considered:
 
  | Name        | Description                            |
  |-------------|----------------------------------------|
- | Name        | Name of the Image|
+ | Name        | Name of the image (path/repo)|
  | Version     | Version of the image|
  | Release     | Release Number for this version|
  | Architecture| Architecture for the image|
  | License     | Image License|
  | BuildDate  | Date/Time image was built|
  | BuildHost  | Host Image was built on|
- | Vendor      | Owner of the image| 
+ | Vendor      | Owner of the image|
  | URL         | Url with more information on the image|
+ | AuthoritativeRegistry | The  authoritative registry in which the image is published|
  | Summary     | Short Description of the image|
  | Description | Detailed description of the image|
  | VcsType    | The type of version control used by the container source. Generally one of git, hg, svn, bzr, cvs|
  | VcsUrl     | URL of the version control repository|
  | VcsRef     | A 'reference' within the version control repository; e.g. a git commit, or a subversion branch|
+ | Component  | Bug tracker component for the image|
+ | DistScope  | Intended scope of distribution for image (see below for possible values)|
+
+3. Possible values of DistScope field
+
+ |Name         | Description |
+ |-------------|-------------|
+ | Private     | No public redistribution intended|
+ | Exclusive   | Redistribution only through the registry listed in the AuthoritativeRegistry Label|
+ | Restricted  | Redistribution only with permission|
+ | Public      | No redistribution limits beyond licenses|
+
