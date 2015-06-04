@@ -17,6 +17,7 @@ The following types of data are being considered:
 
  | Name        | Description                            |
  |-------------|----------------------------------------|
+ | HELP        | Command to run the help command of the image|
  | RUN         | Command to run the image|
  | UNINSTALL   | Command to uninstall the image|
  | INSTALL     | Command to install the image|
