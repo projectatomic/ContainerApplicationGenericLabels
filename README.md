@@ -42,3 +42,4 @@ The following types of data are being considered:
  | VcsType    | The type of version control used by the container source. Generally one of git, hg, svn, bzr, cvs|
  | VcsUrl     | URL of the version control repository|
  | VcsRef     | A 'reference' within the version control repository; e.g. a git commit, or a subversion branch|
+ | Component  | Bug tracker & build system component for the image|
