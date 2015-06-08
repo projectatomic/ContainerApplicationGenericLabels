@@ -42,3 +42,15 @@ The following types of data are being considered:
  | VcsType    | The type of version control used by the container source. Generally one of git, hg, svn, bzr, cvs|
  | VcsUrl     | URL of the version control repository|
  | VcsRef     | A 'reference' within the version control repository; e.g. a git commit, or a subversion branch|
+ | AuthoritativeRegistry | The  authoritative registry in which the image is published|
+ | DistributionScope  | Intended scope of distribution for image (see below for possible values)|
+
+3. Possible values of DistributionScope field
+
+ |Name         | Description |
+ |-------------|-------------|
+ | Private     | No public redistribution intended|
+ | Exclusive   | Redistribution only through the registry listed in the AuthoritativeRegistry Label|
+ | Restricted  | Redistribution only with permission|
+ | Public      | No redistribution limits beyond licenses|
+
