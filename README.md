@@ -42,6 +42,7 @@ The following types of data are being considered:
  | VcsRef     | A 'reference' within the version control repository; e.g. a git commit, or a subversion branch|
  | AuthoritativeRegistry | The  authoritative registry in which the image is published|
  | DistributionScope  | Intended scope of distribution for image (see below for possible values)|
+ | Component  | Bug tracker component for the image|
 
 3. Possible values of DistributionScope field
 
