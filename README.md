@@ -17,34 +17,27 @@ The following types of data are being considered:
 
  | Name        | Description                            |
  |-------------|----------------------------------------|
- | RUN         | Command required to run the image|
- | UNINSTALL   | Command Required to uninstall the image|
- | INSTALL     | Command Required to install the image|
+ | RUN         | Command to run the image|
+ | UNINSTALL   | Command to uninstall the image|
+ | INSTALL     | Command to install the image|
+ | STOP        | Command to execute before stopping container|
 
 2. Labels Names used to describe the application/image
 
  | Name        | Description                            |
  |-------------|----------------------------------------|
- | Name        | Name of the Image|
+ | Name        | Name of the image (path/repo)|
  | Version     | Version of the image|
  | Release     | Release Number for this version|
  | Architecture| Architecture for the image|
  | License     | Image License|
  | BuildDate  | Date/Time image was built|
  | BuildHost  | Host Image was built on|
- | Vendor      | Owner of the image| 
+ | Vendor      | Owner of the image|
  | URL         | Url with more information on the image|
  | Summary     | Short Description of the image|
  | Description | Detailed description of the image|
  | VcsType    | The type of version control used by the container source. Generally one of git, hg, svn, bzr, cvs|
  | VcsUrl     | URL of the version control repository|
  | VcsRef     | A 'reference' within the version control repository; e.g. a git commit, or a subversion branch|
-
-
-3. Annotations with container configuration that is externally accessible, to clarify the extent to which a container image is a "black box". Rather than explicit fields, this is a pattern for the key (in likeness to an Object Identifiers (OID) or the Java package naming convention).
-
- | Sample Name        | Sample Description              |
- |--------------------|---------------------------------|
- | `com.example.webserver.memory.max` | Maximum memory setting for "example.com" organization's webserver |
- | `com.example.webserver.memory.min` | Minimum memory setting for "example.com" organization's webserver |
 
