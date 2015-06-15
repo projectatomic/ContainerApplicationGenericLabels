@@ -17,27 +17,27 @@ The following types of data are being considered:
 
  | Name        | Description                            |
  |-------------|----------------------------------------|
- | HELP        | Command to run the help command of the image|
- | RUN         | Command to run the image|
- | UNINSTALL   | Command to uninstall the image|
- | INSTALL     | Command to install the image|
- | STOP        | Command to execute before stopping container|
- | DEBUG       | Command to run the image with debugging turned on|
+ | help        | Command to run the help command of the image|
+ | run         | Command to run the image|
+ | uninstall   | Command to uninstall the image|
+ | install     | Command to install the image|
+ | stop        | Command to execute before stopping container|
+ | debug       | Command to run the image with debugging turned on|
 
 2. Labels Names used to describe the application/image
 
  | Name        | Description                            |
  |-------------|----------------------------------------|
- | Name        | Name of the Image|
- | Version     | Version of the image|
- | Release     | Release Number for this version|
- | Architecture| Architecture for the image|
- | License     | Image License|
- | BuildDate  | Date/Time image was built|
- | Vendor      | Owner of the image| 
- | URL         | Url with more information on the image|
- | Summary     | Short Description of the image|
- | Description | Detailed description of the image|
- | VcsType    | The type of version control used by the container source. Generally one of git, hg, svn, bzr, cvs|
- | VcsUrl     | URL of the version control repository|
- | VcsRef     | A 'reference' within the version control repository; e.g. a git commit, or a subversion branch|
+ | name        | Name of the Image|
+ | version     | Version of the image|
+ | release     | Release Number for this version|
+ | architecture| Architecture for the image|
+ | license     | Image License|
+ | build_date  | Date/Time image was built|
+ | vendor      | Owner of the image| 
+ | url         | Url with more information on the image|
+ | summary     | Short Description of the image|
+ | description | Detailed description of the image|
+ | vcs_type    | The type of version control used by the container source. Generally one of git, hg, svn, bzr, cvs|
+ | vcs_url     | URL of the version control repository|
+ | vcs_ref     | A 'reference' within the version control repository; e.g. a git commit, or a subversion branch|
