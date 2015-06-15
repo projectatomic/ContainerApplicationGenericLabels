@@ -28,7 +28,7 @@ The following types of data are being considered:
 
  | Name        | Description                            |
  |-------------|----------------------------------------|
- | name        | Name of the Image|
+ | name        | Name of the Image (relative to the authoritative_source) |
  | version     | Version of the image|
  | release     | Release Number for this version|
  | architecture| Architecture for the image|
@@ -41,7 +41,7 @@ The following types of data are being considered:
  | vcs_type    | The type of version control used by the container source. Generally one of git, hg, svn, bzr, cvs|
  | vcs_url     | URL of the version control repository|
  | vcs_ref     | A 'reference' within the version control repository; e.g. a git commit, or a subversion branch|
- | authoritative_source | The  authoritative registry in which the image is published|
+ | authoritative_source | The  authoritative registry in which the image is published (image location is 'authoritative_source/name')|
  | distribution_scope  | Intended scope of distribution for image (see below for possible values)|
 
 3. Possible values of distribution_scope field
