@@ -34,7 +34,7 @@ The following types of data are being considered:
  | architecture| Architecture for the image|
  | license     | Image License|
  | build_date  | Date/Time image was built|
- | vendor      | Owner of the image| 
+ | vendor      | Name of the organization or person creating the image| 
  | url         | Url with more information on the image|
  | summary     | Short Description of the image|
  | description | Detailed description of the image|
