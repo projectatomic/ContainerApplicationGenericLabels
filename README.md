@@ -32,7 +32,6 @@ The following types of data are being considered:
  | Version     | Version of the image|
  | Release     | Release Number for this version|
  | Architecture| Architecture for the image|
- | License     | Image License|
  | BuildDate  | Date/Time image was built|
  | Vendor      | Owner of the image| 
  | URL         | Url with more information on the image|
