@@ -36,7 +36,7 @@ The following types of data are being considered:
  | vendor      | Owner of the image| 
  | url         | Url with more information on the image|
  | summary     | Short Description of the image|
- | Description | Detailed description of the image|
+ | description | Detailed description of the image|
  | vcs_type    | The type of version control used by the container source. Generally one of git, hg, svn, bzr, cvs|
  | vcs_url     | URL of the version control repository|
  | vcs_ref     | A 'reference' within the version control repository; e.g. a git commit, or a subversion branch|
