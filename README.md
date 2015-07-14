@@ -11,6 +11,8 @@ distribution specific.
 
 If you would like to see additional names and descriptions added please open issues and send pull requests to update this readme.
 
+## Overview
+
 The following types of data are being considered:
 
 1. Labels used to describe how to use the application/image
@@ -40,3 +42,26 @@ The following types of data are being considered:
  | vcs_type    | The type of version control used by the container source. Generally one of git, hg, svn, bzr, cvs|
  | vcs_url     | URL of the version control repository|
  | vcs_ref     | A 'reference' within the version control repository; e.g. a git commit, or a subversion branch|
+ | authoritative_source | The  authoritative location in which the image is published|
+ | distribution_scope  | Intended scope of distribution for image (see below for possible values)|
+
+3. Possible values of distribution_scope field
+
+ |Name         | Description |
+ |-------------|-------------|
+ | private     | No public redistribution intended|
+ | authoritative_source_only  | Redistribution only from the source listed in the 'authoritative_source' label|
+ | restricted  | Redistribution only with permission|
+ | public      | No redistribution limits beyond licenses|
+
+
+## Details on Labels
+
+## authoritative_source 
+* The authoritative location the image is published by the owner.
+* In combination with the 'name' label, this tells a user where to go and look for official updates and current versions of the image, regardless of the local tags.
+
+## distribution_scope
+* The intended scope of distribution for the image.
+* Allows a user to define the intended scope of distribution. This addresses the end-user case of internal builds vs. public content and the use case of a vendor like Red Hat that provides content streams under subscription agreements - which is different from the license(s) of the image content.
+* In combination with the 'authoritative_source' and 'name' labels allows automatic redirect to the authoritative source.
