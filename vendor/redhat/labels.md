@@ -157,7 +157,7 @@ Beta releases will be treated as separate 'generations' at the first level. Exam
 ```
 rhel8-beta/rhel:8beta-$IMGBUILD
 rhel8-beta/rhel-tools:8beta-$IMGBUILD
-rhel8-beta/rsyslog:VERSION_$IMGBUILD
+rhel8-beta/rsyslog:VERSION-$IMGBUILD
 rhel8-beta/php...
 ...
 ```
@@ -168,7 +168,7 @@ rhel8-beta/php...
 REGISTRY/
  PRODUCT$PRODUCTGEN[--$PLATFORMDIFFERENTIATOR]/
  REPO[$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]
- :$COMPVER_$IMGBUILD
+ :$COMPVER-$IMGBUILD
 ```
 
 The mapping to Bugzilla (or Jira) components will follow REPO-docker within the respective product. Details as follows:
@@ -180,7 +180,7 @@ The mapping to Bugzilla (or Jira) components will follow REPO-docker within the 
   * `REPO[$CONTENTGENERATION]` maps to the component with -docker appended
   * `PLATFORMDIFFERNTIATOR` is not part of the formal mapping
 * `:$COMPVER` Maps to the version of the component
-* `_$IMGBUILD` is not part of the formal mapping
+* `-$IMGBUILD` is not part of the formal mapping
 
 Examples:
 
