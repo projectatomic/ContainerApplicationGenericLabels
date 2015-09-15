@@ -119,13 +119,13 @@ registry.access.redhat.com/rhscl/ruby200--rhel7:1.1-15
 registry.access.redhat.com/rhscl/postgresql92:1.1-4
 ```
 
-## BREW Naming
+## Koji Naming
 
-The internal root of the naming is the naming of the dist-git repo in BREW that contains the Dockerfile.So that naming must follow the above schema (without the tagging as that will be handled automatically)
+The internal root of the naming is the naming of the dist-git repo that contains the Dockerfile. So that naming must follow the above schema (without the tagging as that will be handled automatically)
 
-The naming in Brew should be reponame-docker
+dist-git repos should be named `$REPO-docker`.
 
-The product context is derived from Brew.
+The product context is derived from koji.
 
 Exceptions:
 
@@ -133,5 +133,5 @@ RHEL Server base images. Internal name is rhel-server-docker, external name is j
 
 Examples:
 
-rhel-server-docker -> rhel$MAJOR/rhel:TAG
-rhel-tools-docker -> rhel$MAJOR/rhel-tools:TAG
+rhel-server-docker -> rhel$MAJOR/rhel:TAG  
+rhel-tools-docker -> rhel$MAJOR/rhel-tools:TAG  
