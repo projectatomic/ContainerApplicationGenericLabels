@@ -55,6 +55,10 @@ The following types of data are being considered:
  | restricted  | Redistribution only with permission|
  | public      | No redistribution limits beyond licenses|
 
+4. Custom labels may be defined by a namespace prefix using reverse DNS notation of a domain controlled by the author. For example, `com.redhat.access`.
+
+        LABEL io.openshift.expose-services="8080:http" \
+              io.openshift.tags="builder,nodejs,nodejs010"
 
 ## Details on Labels
 
