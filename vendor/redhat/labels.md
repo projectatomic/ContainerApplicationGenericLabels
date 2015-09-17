@@ -44,9 +44,9 @@ $authoritative_source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REP
   * Scope of intended distribution of the image.
   * Possible values
     * `private`: No public redistribution intended
-    * `authoritative_source_only` Redistribution only from the source listed in the `"authoritative_source"` label|
-    * `restricted` Redistribution only with permission|
-    * `public` No redistribution limits beyond licenses|
+    * `authoritative_source_only` Redistribution only from the source listed in the `"authoritative_source"` label
+    * `restricted` Redistribution only with permission
+    * `public` No redistribution limits beyond licenses
   * For Red Hat product images this will be set to `"authoritative_source_only"`
 * `"build_date"`
   * Date/Time image was built (Optional)
