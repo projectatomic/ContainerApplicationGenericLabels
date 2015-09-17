@@ -106,7 +106,7 @@ registry.access.redhat.com/rhel7/php:5.4.16-3
 ```
 
 ```
-registry.access.redhat.com/rhscl/ruby193--rhe6:1.1-11
+registry.access.redhat.com/rhscl/ruby193--rhel6:1.1-11
 registry.access.redhat.com/rhscl/ruby193--rhel7:1.1-3
 ```
 
