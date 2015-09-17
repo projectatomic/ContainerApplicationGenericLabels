@@ -27,13 +27,13 @@ The Fields are:
 To reconstruct the authoritative source for an image, docker pull...
 
 ```
-$AuthoritativeRegistry/$Name:$Version-$Release
+$authoritative_source/$name:$version-$release
 ```
 
 Aka:
 
 ```
-$AuthoritativeRegistry[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REPO[$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]:$COMPVER-$IMGBUILD
+$authoritative_source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REPO[$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]:$COMPVER-$IMGBUILD
 ```
 
 ## Other labels
