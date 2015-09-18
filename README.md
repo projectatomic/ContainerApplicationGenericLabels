@@ -34,24 +34,24 @@ The following types of data are being considered:
  | version     | Version of the image|
  | release     | Release Number for this version|
  | architecture| Architecture for the image|
- | build_date  | Date/Time image was built|
+ | build-date  | Date/Time image was built|
  | vendor      | Owner of the image| 
  | url         | Url with more information on the image|
  | summary     | Short Description of the image|
  | description | Detailed description of the image|
- | vcs_type    | The type of version control used by the container source. Generally one of git, hg, svn, bzr, cvs|
- | vcs_url     | URL of the version control repository|
- | vcs_ref     | A 'reference' within the version control repository; e.g. a git commit, or a subversion branch|
- | authoritative_source_url | The authoritative location in which the image is published|
- | distribution_scope  | Intended scope of distribution for image (see below for possible values)|
- | changelog_url | URL of a page containing release notes for the image|
+ | vcs-type    | The type of version control used by the container source. Generally one of git, hg, svn, bzr, cvs|
+ | vcs-url     | URL of the version control repository|
+ | vcs-ref     | A 'reference' within the version control repository; e.g. a git commit, or a subversion branch|
+ | authoritative-source-url | The authoritative location in which the image is published|
+ | distribution-scope  | Intended scope of distribution for image (see below for possible values)|
+ | changelog-url | URL of a page containing release notes for the image|
 
-3. Possible values of distribution_scope field
+3. Possible values of distribution-scope field
 
  |Name         | Description |
  |-------------|-------------|
  | private     | No public redistribution intended|
- | authoritative_source_only  | Redistribution only from the source listed in the 'authoritative_source_url' label|
+ | authoritative-source-only  | Redistribution only from the source listed in the 'authoritative-source-url' label|
  | restricted  | Redistribution only with permission|
  | public      | No redistribution limits beyond licenses|
 
@@ -62,11 +62,11 @@ The following types of data are being considered:
 
 ## Details on Labels
 
-## `authoritative_source_url`
+## `authoritative-source-url`
 * The authoritative location the image is published by the owner.
 * In combination with the 'name' label, this tells a user where to go and look for official updates and current versions of the image, regardless of the local tags.
 
-## `distribution_scope`
+## `distribution-scope`
 * The intended scope of distribution for the image.
 * Allows a user to define the intended scope of distribution. This addresses the end-user case of internal builds vs. public content and the use case of a vendor like Red Hat that provides content streams under subscription agreements - which is different from the license(s) of the image content.
-* In combination with the 'authoritative_source_url' and 'name' labels allows automatic redirect to the authoritative source.
+* In combination with the 'authoritative-source-url' and 'name' labels allows automatic redirect to the authoritative source.

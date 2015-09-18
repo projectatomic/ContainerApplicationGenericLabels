@@ -12,7 +12,7 @@ The Fields are:
   * Right now the value is `"x86_64"`
 * `"name"`
   * The primary name of the image (relative path without TAG): `PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/ REPO[$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]`
-* `"authoritative_source"`
+* `"authoritative-source"`
   * The authoritative registry in which the image is published. For Red Hat this is `"registry.access.redhat.com"`. This allows e.g. to verify if a newer version is available independent of local tagging.
    * For ISVs this is optional.
 * `"release"`
@@ -27,28 +27,28 @@ The Fields are:
 To reconstruct the authoritative source for an image, docker pull...
 
 ```
-$authoritative_source/$name:$version-$release
+$authoritative-source/$name:$version-$release
 ```
 
 Aka:
 
 ```
-$authoritative_source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REPO[$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]:$COMPVER-$IMGBUILD
+$authoritative-source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REPO[$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]:$COMPVER-$IMGBUILD
 ```
 
 ## Other labels
 
-* `"com.redhat.build_host"`
+* `"com.redhat.build-host"`
   * The build host used to create an image for internal use and auditability, similar to the use in RPM.
-* `"distribution_scope"`
+* `"distribution-scope"`
   * Scope of intended distribution of the image.
   * Possible values
     * `private`: No public redistribution intended
-    * `authoritative_source_only` Redistribution only from the source listed in the `"authoritative_source"` label
+    * `authoritative-source-only` Redistribution only from the source listed in the `"authoritative-source"` label
     * `restricted` Redistribution only with permission
     * `public` No redistribution limits beyond licenses
-  * For Red Hat product images this will be set to `"authoritative_source_only"`
-* `"build_date"`
+  * For Red Hat product images this will be set to `"authoritative-source-only"`
+* `"build-date"`
   * Date/Time image was built (Optional)
 * `"url"` (Optional)
   * Url with more information on the image
@@ -56,11 +56,11 @@ $authoritative_source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REP
   * Short Description of the image
 * `"description"` (Optional)
   * Detailed description of the image
-* `"vcs_type"` (Optional)
+* `"vcs-type"` (Optional)
   * The type of version control used by the container source. Generally one of git, hg, svn, bzr, cvs
-* `"vcs_url"` (Optional)
+* `"vcs-url"` (Optional)
   * URL of the version control repository
-* `"vcs_ref"` (Optional)
+* `"vcs-ref"` (Optional)
   * A 'reference' within the version control repository; e.g. a git commit, or a subversion branch
 
 ### Examples
@@ -69,38 +69,38 @@ $authoritative_source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REP
 
         "Labels": {
                     "architecture": "x86_64",
-                    "authoritative_source:" "registry.access.redhat.com",
-                    "com.redhat.build_host": "rcm-img04.build.eng.bos.redhat.com",
+                    "authoritative-source:" "registry.access.redhat.com",
+                    "com.redhat.build-host": "rcm-img04.build.eng.bos.redhat.com",
                     "com.redhat.component": "rhel-server-docker",
                     "name": "rhel7/rhel",
                     "release": "4",
                     "vendor": "Red Hat, Inc.",
                     "version": "7.1",
                     "summary":"RHEL 7 base platform image",
-                    "distribution_scope":"authoritative_source_only"
+                    "distribution-scope":"authoritative-source-only"
                 },
 
 1. `registry.access.redhat.com/rhel7/rsyslog:7.1-4` has the following metadata:
 
         "Labels": {
                     "architecture": "x86_64",
-                    "authoritative_source": "registry.access.redhat.com"
-                    "com.redhat.build_host": "rcm-img04.build.eng.bos.redhat.com",
+                    "authoritative-source": "registry.access.redhat.com"
+                    "com.redhat.build-host": "rcm-img04.build.eng.bos.redhat.com",
                     "com.redhat.component": "rsyslog-docker",
                     "name": "rhel7/rsyslog",
                     "release": "4",
                     "vendor": "Red Hat, Inc.",
                     "version": "7.1",
                     "summary":"RHEL 7 rsyslog application image",
-                    "distribution_scope":"authoritative_source_only"
+                    "distribution-scope":"authoritative-source-only"
                 },
 
 1. `registry.access.redhat.com/rhel7/php-5.4.16-3` has the following metadata:
 
         "Labels": {
                     "architecture": "x86_64",
-                    "authoritative_source": "registry.access.redhat.com"
-                    "com.redhat.build_host": "rcm-img04.build.eng.bos.redhat.com",
+                    "authoritative-source": "registry.access.redhat.com"
+                    "com.redhat.build-host": "rcm-img04.build.eng.bos.redhat.com",
                     "com.redhat.component": "php-docker",
                     "name": "rhel7/php",
                     "release": "3",
@@ -108,7 +108,7 @@ $authoritative_source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REP
                     "version": "5.4.16",
                     "summary": "Multiple",
                     "summary":"RHEL 7 based PHP platform image",
-                    "distribution_scope":"authoritative_source_only"
+                    "distribution-scope":"authoritative-source-only"
                 },
 
 ## Primary Product Images in library/
@@ -253,9 +253,9 @@ Red Hat uses the LABEL metadata field to provide additional information for imag
   * Name of the ISV
 * `"version"`
   * Version part of the TAG in the primary name.
-* `"authoritative_source"`
+* `"authoritative-source"`
   * The official registry the ISV is publishing the images to.
-* `"distribution_scope"`
+* `"distribution-scope"`
   * Distribution scope for the image
 
 Any vendor specific LABELS, `'com.redhat.*'`, must be blanked out.
