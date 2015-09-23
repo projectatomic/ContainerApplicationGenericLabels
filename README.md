@@ -34,7 +34,7 @@ The following types of data are being considered:
  | version     | Version of the image|
  | release     | Release Number for this version|
  | architecture| Architecture for the image|
- | build-date  | Date/Time image was built|
+ | build-date  | Date/Time image was built as [RFC 3339](https://tools.ietf.org/html/rfc3339) date-time|
  | vendor      | Owner of the image| 
  | url         | Url with more information on the image|
  | summary     | Short Description of the image|
