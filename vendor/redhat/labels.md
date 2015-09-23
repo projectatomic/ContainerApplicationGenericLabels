@@ -49,7 +49,7 @@ $authoritative-source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REP
     * `public` No redistribution limits beyond licenses
   * For Red Hat product images this will be set to `"authoritative-source-only"`
 * `"build-date"`
-  * Date/Time image was built (Optional)
+  * Date/Time image was built as [RFC 3339](https://tools.ietf.org/html/rfc3339) date-time (Optional)
 * `"url"` (Optional)
   * Url with more information on the image
 * `"summary"` (Required)
