@@ -6,7 +6,7 @@ With the introduction of the [Atomic command](http://developerblog.redhat.com/20
 We would like to get consensus on default names.  Proposals have been made to namespace the label names defined
 in Docker.  
 
-But we believe their should be some generic toplevel names defined that are not vendor specific, or
+But we believe there should be some generic toplevel names defined that are not vendor specific, or
 distribution specific.  
 
 If you would like to see additional names and descriptions added please open issues and send pull requests to update this readme.

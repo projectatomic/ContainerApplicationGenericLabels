@@ -113,7 +113,7 @@ $authoritative-source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REP
 
 ## Primary Product Images in library/
 
-In *addition*, primary product images for our core products will be created in the `library/` namspace to allow direct pull from `redhat.io/REPO` similar to the existing redirects from Docker. This includes an aggregate rhel repository with multiple majors. Note, this is a simple tag model.
+In *addition*, primary product images for our core products will be created in the `library/` namespace to allow direct pull from `redhat.io/REPO` similar to the existing redirects from Docker. This includes an aggregate rhel repository with multiple majors. Note, this is a simple tag model.
 
 Primary product images are images that for convenience and positioning purposes we want to be able to pull directly from `redhat.io/REPO` and redirected from `docker.io/redhat/REPO` or even `docker.io/REPO`.
 
@@ -138,7 +138,7 @@ rhel-tools
 
 The `/redhat` namespace will be set up to redirect to `/library`
 
-One thing to keep in mind is that the `:TAG` part is not regularirly used by most users. Only users who very specifically care about using certain versions will use it, or users wanting to find out what exactly they are using in their builds. The vast majority of users will rely on the REPO part of the url before the ':'.
+One thing to keep in mind is that the `:TAG` part is not regularly used by most users. Only users who very specifically care about using certain versions will use it, or users wanting to find out what exactly they are using in their builds. The vast majority of users will rely on the REPO part of the url before the ':'.
 
 **Note:** The example used above of having a `/rhel` repo, that includes both, rhel7 and rhel6 images is probably not going to work in the current layout of Crane/CDN on the Red Hat registry. So for now `/library/rhel` is simply `rhel7`.
 
@@ -277,7 +277,7 @@ We are in discussions with Docker on how to federate our content into their sear
 
 ## V2 Protocol
 
-The work on defining the V2 protocol and repostitory/image format is ongoing. The naming model is expected to change with the introduction of V2.
+The work on defining the V2 protocol and repository/image format is ongoing. The naming model is expected to change with the introduction of V2.
 
 ## Red Hat Software Collections Containers and Labels
 
