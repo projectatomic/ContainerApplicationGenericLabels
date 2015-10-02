@@ -48,7 +48,7 @@ Note: Future versions of Docker will remove the limitation on only two levels.
 * registry.access.redhat.com is a bit long, a shorter model would be preferrable. .io appears to be the common TLD for these kind of services.
 * The  naming and versioning for Platform images (images meant for users to build other images on top of) has to be extremely stable and predicatble to allow reliable tracking without imlicit changes e.g. of :latest on people building images on top.
 * In many cases the generation of the underlying platform and of the content has significant impact on the user (e.g. software will stop working when the underlying stack moves from RHEL 6 to RHEL 7 or from Python 2.7 to Python 3)
-* For application images (leaf layers, not meant to be buid on top) this is much less of a problem.
+* For application images (leaf layers, not meant to be build on top) this is much less of a problem.
 
 ## Notes
 
@@ -71,7 +71,7 @@ Based on the v1 Docker naming scheme `REGISTRY[:PORT]/USER/REPO[:TAG]`, Red Hat 
 ```
 registry.access.redhat.com/
  PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/
- REPO[$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]
+ REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]
  :$COMPVER-$IMGBUILD
 ```
 
@@ -87,7 +87,7 @@ The spaces (" "s) after the are just for formating and not part of the actual sc
   * Can have a modifier if it's a variant or the combination is very important: e.g. 'rhel-systemd' for a rhel platform image that includes systemd.
   * Note: The URL up to IMAGE actually designates a Repository, the TAG part then addresses a specific IMAGE within the Repo. We will use Image and Repo exchangeably.
 * $CONTENTGENERATION
-  * Optional number differentiating major generational changes withing the primary content that are significant for the use (ie the developer of a layered image). Example: Python vs python33, ruby193 vs ruby200.
+  * Optional number differentiating major generational changes withing the primary content that are significant for the use (ie the developer of a layered image). Example: python vs python-33, ruby-193 vs ruby-200.
 * $PLATFORMDIFFERENTIATOR
   * Optional field to differentiate builds of higher-level images based on the underlying platform generation. Example: SCL ruby200 built on RHEL 6 base vs RHEL 7 - the issue here is, that behavior of the whole stack is sufficiently different, so that as a developer I want to explicitly track (code may break in the move). We can't just track this in the TAG because the FROM line sets the base implicitly in the static linking model.
 * $COMPVER
@@ -106,17 +106,17 @@ registry.access.redhat.com/rhel7/php:5.4.16-3
 ```
 
 ```
-registry.access.redhat.com/rhscl/ruby193--rhel6:1.1-11
-registry.access.redhat.com/rhscl/ruby193--rhel7:1.1-3
+registry.access.redhat.com/rhscl/ruby-193-rhel6:1.9.3-11
+registry.access.redhat.com/rhscl/ruby-193-rhel7:1.9.3-3
 ```
 
 ```
-registry.access.redhat.com/rhscl/ruby200--rhel6:1.1-1
-registry.access.redhat.com/rhscl/ruby200--rhel7:1.1-15
+registry.access.redhat.com/rhscl/ruby-200-rhel6:2.0-1
+registry.access.redhat.com/rhscl/ruby-200-rhel7:2.0-15
 ```
 
 ```
-registry.access.redhat.com/rhscl/postgresql92:1.1-4
+registry.access.redhat.com/rhscl/postgresql-92-rhel7:9.2-4
 ```
 
 ## Koji Naming
