@@ -215,7 +215,7 @@ registry.access.redhat.com/rhel7/php:5.4.16-3
 
 maps to
 
-* Product: RHEL
+* Product: Red Hat Enterprise Linux 7
 * Version: 7.0
 * Component: php-docker
 
