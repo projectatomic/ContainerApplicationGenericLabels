@@ -11,7 +11,7 @@ The Fields are:
   * Note: there is an upstream Architecture field, but it uses a different terminology. We should work upstream to sync. For now we have to keep the two fields in sync.
   * Right now the value is `"x86_64"`
 * `"name"`
-  * The primary name of the image (relative path without TAG): `PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/ REPO[$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]`
+  * The primary name of the image (relative path without TAG): `PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/ REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]`
 * `"authoritative-source"`
   * The authoritative registry in which the image is published. For Red Hat this is `"registry.access.redhat.com"`. This allows e.g. to verify if a newer version is available independent of local tagging.
    * For ISVs this is optional.
@@ -33,7 +33,7 @@ $authoritative-source/$name:$version-$release
 Aka:
 
 ```
-$authoritative-source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REPO[$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]:$COMPVER-$IMGBUILD
+$authoritative-source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]:$COMPVER-$IMGBUILD
 ```
 
 ## Other labels
@@ -62,6 +62,14 @@ $authoritative-source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REP
   * URL of the version control repository
 * `"vcs-ref"` (Optional)
   * A 'reference' within the version control repository; e.g. a git commit, or a subversion branch
+* `"io.k8s.description"` (Optional)
+  * Description of the container displayed in Kubernetes
+* `"io.k8s.display-name"` (Optional)
+  * Name of the container displayed in Kubernetes
+* `"io.openshift.expose-services"` (Optional)
+  * port:service pairs separated with comma, e.g. `"8080:http,8443:https"`
+* `"io.openshift.tags"` (Optional)
+  * tags used by searching engine, e.g. `"builder,php,php56,rh-php56"`
 
 ### Examples
 
@@ -106,9 +114,28 @@ $authoritative-source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REP
                     "release": "3",
                     "vendor": "Red Hat, Inc.",
                     "version": "5.4.16",
-                    "summary": "Multiple",
                     "summary":"RHEL 7 based PHP platform image",
                     "distribution-scope":"authoritative-source-only"
+                },
+
+1. `registry.access.redhat.com/rhscl/php-56-rhel7:5.6-3` has the following metadata:
+
+        "Labels": {
+                    "architecture": "x86_64",
+                    "authoritative-source": "registry.access.redhat.com"
+                    "com.redhat.build-host": "rcm-img04.build.eng.bos.redhat.com",
+                    "com.redhat.component": "rh-php56-docker",
+                    "name": "rhscl/php-56-rhel7",
+                    "release": "3",
+                    "vendor": "Red Hat, Inc.",
+                    "version": "5.6",
+                    "summary": "PHP 5.6 platform for building and running applications",
+                    "distribution-scope": "authoritative-source-only",
+                    "url": "http://github.com/sclorg/rhscl-dockerfiles",
+                    "io.k8s.description="Platform for building and running PHP 5.6 applications",
+                    "io.k8s.display-name="Apache 2.4 with PHP 5.6",
+                    "io.openshift.expose-services="8080:http",
+                    "io.openshift.tags="builder,php,php56,rh-php56"
                 },
 
 

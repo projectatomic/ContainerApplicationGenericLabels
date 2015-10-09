@@ -89,7 +89,7 @@ The spaces (" "s) after the are just for formating and not part of the actual sc
 * $CONTENTGENERATION
   * Optional number differentiating major generational changes withing the primary content that are significant for the use (ie the developer of a layered image). Example: python vs python-33, ruby-193 vs ruby-200.
 * $PLATFORMDIFFERENTIATOR
-  * Optional field to differentiate builds of higher-level images based on the underlying platform generation. Example: SCL ruby200 built on RHEL 6 base vs RHEL 7 - the issue here is, that behavior of the whole stack is sufficiently different, so that as a developer I want to explicitly track (code may break in the move). We can't just track this in the TAG because the FROM line sets the base implicitly in the static linking model.
+  * Optional field to differentiate builds of higher-level images based on the underlying platform generation. Example: SCL ruby-200 built on RHEL 6 base vs RHEL 7 - the issue here is, that behavior of the whole stack is sufficiently different, so that as a developer I want to explicitly track (code may break in the move). We can't just track this in the TAG because the FROM line sets the base implicitly in the static linking model.
 * $COMPVER
   * Version string of the primary component without the build part of the rpm. For core RHEL platform images this is the release version string, for e.g. php it would be right now be '5.4.16' based on 'php-5.4.16-23.rhel7_0.3'.x86_64.rpm. For different frames of reference (aka non-RHEL), this would follow a different model depending what makes sense for the repsective product..
 * $IMGBUILD
@@ -192,7 +192,7 @@ rhel8-beta/php...
 ```
 REGISTRY/
  PRODUCT$PRODUCTGEN[--$PLATFORMDIFFERENTIATOR]/
- REPO[$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]
+ REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]
  :$COMPVER-$IMGBUILD
 ```
 
@@ -201,8 +201,8 @@ The mapping to Bugzilla (or Jira) components will follow REPO-docker within the 
 
 * `REGISTRY` Ignored in Bugzilla
 * `PRODUCT[$PRODUCTGEN]` Maps to the product/version in Bugzilla, other metadata such as
-* `REPO[$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]`
-  * `REPO[$CONTENTGENERATION]` maps to the component with -docker appended
+* `REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]`
+  * `REPO[--$CONTENTGENERATION]` maps to the component with -docker appended
   * `PLATFORMDIFFERNTIATOR` is not part of the formal mapping
 * `:$COMPVER` Maps to the version of the component
 * `-$IMGBUILD` is not part of the formal mapping
@@ -215,7 +215,7 @@ registry.access.redhat.com/rhel7/php:5.4.16-3
 
 maps to
 
-* Product: RHEL
+* Product: Red Hat Enterprise Linux 7
 * Version: 7.0
 * Component: php-docker
 
@@ -271,7 +271,7 @@ Please note, that at this point Red Hat has *no* plans to actually offer any ima
 Red Hat uses the LABEL metadata field to provide additional information for images. All LABELs that are not actively used by the ISV must be overwritten with "". The following labels must be set appropriately to pass certification:
 
 * `"name"`
-  * The primary name of the image (relative path w/o TAG): `PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR] /REPO[$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]`
+  * The primary name of the image (relative path w/o TAG): `PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR] /REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]`
 * `"release"`
   * The build of the image, `$IMGBUILD`
 * `"vendor"`
@@ -306,7 +306,52 @@ The work on defining the V2 protocol and repository/image format is ongoing. The
 
 ## Red Hat Software Collections Containers and Labels
 
-TBA
+Red Hat Software Collections containers use the following values:
+
+* $PRODUCT: rhscl
+* $PRODUCTGEN: not specified, since RHSCL 1.x and RHSCL 2.x content space is shared
+* $REPO: name of the Software Collection without vendor prefix (`rh` is already used in the PRODUCT part, so no need to duplicate)
+* $CONTENTGENERATION: part of the main component version, that is related to API stability
+  * for example `rh-php56` collection will use 56 as $CONTENTGENERATION
+* $PLATFORMDIFFERENTIATOR: RHEL version that the collection is based on; e.g. rhel6, rhel7, ...
+* $COMPVER: part of the main component version, that is related to API stability
+  * for example `rh-php56` collection will use 56 as $COMPVER
+* $IMGBUILD: build of the image, usually increasing integer
+
+### Beta Releases
+
+Beta releases will be treated as separate 'generations' at the first level. Example:
+
+```
+rhscl_beta/php-56-rhel7:5.6-3
+rhscl_beta/postgresql-94-rhel7:9.4-1
+...
+```
+
+
+### Bugzilla Mapping
+
+The following rules are used for Bugzilla mapping in Red Hat Software Collections:
+
+* `REGISTRY` Ignored in Bugzilla
+* `PRODUCT[$PRODUCTGEN]` is not part of the formal mapping
+* `REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]`
+  * `REPO[--$CONTENTGENERATION]` maps to the Software Collection name with -docker appended
+  * `PLATFORMDIFFERNTIATOR` is not part of the formal mapping
+* `:$COMPVER` Maps to the Software Collection name and is used in version field in Bugzilla
+* `-$IMGBUILD` is not part of the formal mapping
+
+Examples:
+```
+registry.access.redhat.com/rhscl/php-56-rhel7:5.6-3
+```
+
+maps to
+
+* Product: Red Hat Software Collections
+* Component: rh-php56-docker
+* Version: rh-php56
+
 
 ## Red Hat Middleware Image Naming
 
