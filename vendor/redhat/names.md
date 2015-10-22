@@ -180,10 +180,10 @@ Until an automatic redirect solution can be implemented, or the approach can be 
 Beta releases will be treated as separate 'generations' at the first level. Example:
 
 ```
-rhel8-beta/rhel:8beta-$IMGBUILD
-rhel8-beta/rhel-tools:8beta-$IMGBUILD
-rhel8-beta/rsyslog:VERSION-$IMGBUILD
-rhel8-beta/php...
+rhel8_beta/rhel:8beta-$IMGBUILD
+rhel8_beta/rhel-tools:8beta-$IMGBUILD
+rhel8_beta/rsyslog:VERSION-$IMGBUILD
+rhel8_beta/php...
 ...
 ```
 
