@@ -6,23 +6,15 @@ Red Hat built images will include a fields in the metadata to identify the offic
 
 The Fields are:
 
-* `"architecture"`
-  * Target hardware architecture the image is built for in the Red Hat terminology inherited from RPM.
-  * Note: there is an upstream Architecture field, but it uses a different terminology. We should work upstream to sync. For now we have to keep the two fields in sync.
-  * Right now the value is `"x86_64"`
-* `"name"`
-  * The primary name of the image (relative path without TAG): `PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/ REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]`
-* `"authoritative-source"`
-  * The authoritative registry in which the image is published. For Red Hat this is `"registry.access.redhat.com"`. This allows e.g. to verify if a newer version is available independent of local tagging.
-   * For ISVs this is optional.
-* `"release"`
-  * The build of the image, `$IMGBUILD`
-* `"vendor"`
-  * `"Red Hat, Inc."`
-* `"version"`
-  * Version part of the TAG in the primary name, `$COMPVER`
-* `"com.redhat.component"`
-  * The component in Bugzilla or other tracker representing the image. Can be used to file bugs.
+| Name           | Description                        |
+|----------------|------------------------------------|
+| architecture | Target hardware architecture the image is built for in the Red Hat terminology inherited from RPM. **Note**: there is an upstream Architecture field, but it uses a different terminology. We should work upstream to sync. For now we have to keep the two fields in sync. Current valid value is `"x86_64"` |
+| name         | The primary name of the image (relative path without TAG): `PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/ REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]` |
+| authoritative-source | The authoritative registry in which the image is published. For Red Hat this is `"registry.access.redhat.com"`. This allows e.g. to verify if a newer version is available independent of local tagging. For ISVs this is optional. |
+| release        | The build of the image, `$IMGBUILD` |
+| vendor         | "Red Hat, Inc." |
+| version        | Version part of the TAG in the primary name, `$COMPVER` |
+| com.redhat.component | The component in Bugzilla or other tracker representing the image. Can be used to file bugs. |
 
 To reconstruct the authoritative source for an image, docker pull...
 
@@ -30,7 +22,7 @@ To reconstruct the authoritative source for an image, docker pull...
 $authoritative-source/$name:$version-$release
 ```
 
-Aka:
+In other words:
 
 ```
 $authoritative-source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]:$COMPVER-$IMGBUILD
@@ -38,38 +30,21 @@ $authoritative-source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REP
 
 ## Other labels
 
-* `"com.redhat.build-host"`
-  * The build host used to create an image for internal use and auditability, similar to the use in RPM.
-* `"distribution-scope"`
-  * Scope of intended distribution of the image.
-  * Possible values
-    * `private`: No public redistribution intended
-    * `authoritative-source-only` Redistribution only from the source listed in the `"authoritative-source"` label
-    * `restricted` Redistribution only with permission
-    * `public` No redistribution limits beyond licenses
-  * For Red Hat product images this will be set to `"authoritative-source-only"`
-* `"build-date"`
-  * Date/Time image was built as [RFC 3339](https://tools.ietf.org/html/rfc3339) date-time (Optional)
-* `"url"` (Optional)
-  * Url with more information on the image
-* `"summary"` (Required)
-  * Short Description of the image
-* `"description"` (Optional)
-  * Detailed description of the image
-* `"vcs-type"` (Optional)
-  * The type of version control used by the container source. Generally one of git, hg, svn, bzr, cvs
-* `"vcs-url"` (Optional)
-  * URL of the version control repository
-* `"vcs-ref"` (Optional)
-  * A 'reference' within the version control repository; e.g. a git commit, or a subversion branch
-* `"io.k8s.description"` (Optional)
-  * Description of the container displayed in Kubernetes
-* `"io.k8s.display-name"` (Optional)
-  * Name of the container displayed in Kubernetes
-* `"io.openshift.expose-services"` (Optional)
-  * port:service pairs separated with comma, e.g. `"8080:http,8443:https"`
-* `"io.openshift.tags"` (Optional)
-  * tags used by searching engine, e.g. `"builder,php,php56,rh-php56"`
+| Name           | Description                        |
+|----------------|------------------------------------|
+| com.redhat.build-host | The build host used to create an image for internal use and auditability, similar to the use in RPM. |
+| distribution-scope | Scope of intended distribution of the image. For Red Hat product images this will be set to `"authoritative-source-only"`. Other possible values <ul><li>`private`: No public redistribution intended</li><li>`authoritative-source-only`: Redistribution only from the source listed in the `"authoritative-source"` label</li><li>`restricted`: Redistribution only with permission</li><li>`public`: No redistribution limits beyond licenses</li></ul> |
+| build-date     | Date/Time image was built as [RFC 3339](https://tools.ietf.org/html/rfc3339) date-time (Optional) |
+| url            | (Optional) Url with more information on the image |
+| summary        | (Required) Short Description of the image |
+| description    | (Optional) Detailed description of the image |
+| vcs-type       | (Optional) The type of version control used by the container source. Generally one of git, hg, svn, bzr, cvs |
+| vcs-url        | (Optional) URL of the version control repository |
+| vcs-ref        | (Optional) A 'reference' within the version control repository; e.g. a git commit, or a subversion branch |
+| io.k8s.description | (Optional) Description of the container displayed in Kubernetes |
+| io.k8s.display-name | (Optional) Name of the container displayed in Kubernetes |
+| io.openshift.expose-services | (Optional) port:service pairs separated with comma, e.g. `"8080:http,8443:https"` |
+| io.openshift.tags | (Optional) tags used by searching engine, e.g. `"builder,php,php56,rh-php56"` |
 
 ### Examples
 
