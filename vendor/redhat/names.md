@@ -70,7 +70,7 @@ Based on the v1 Docker naming scheme `REGISTRY[:PORT]/USER/REPO[:TAG]`, Red Hat 
 
 ```
 registry.access.redhat.com/
- PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/
+ PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR][_$RELEASE]/
  REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]
  :$COMPVER-$IMGBUILD
 ```
@@ -82,6 +82,8 @@ The spaces (" "s) after the are just for formating and not part of the actual sc
 * $PRODUCTGEN
   * The major relevant generation of the product that is relevant for user experience in the context of the images if needed - for RHEL this is the major release (e.g. RHEL 7)
   *The minor release of a product will only be used if it is significant for the respective product from a user point of view. Example: RHEL minor releases are not significant at that level due to the life cycle guarantees given with RHEL, while with SCLs no versions are relevant at this level, so it's simply scl/*
+* $RELEASE
+  * Indicate specific release milestone. Example is beta release which can be used to deliver pre-release content with different level of support.
 * REPO
   * Name of the image - based on the primary component - e.g. rhel for base, php for php images.
   * Can have a modifier if it's a variant or the combination is very important: e.g. 'rhel-systemd' for a rhel platform image that includes systemd.
@@ -180,10 +182,10 @@ Until an automatic redirect solution can be implemented, or the approach can be 
 Beta releases will be treated as separate 'generations' at the first level. Example:
 
 ```
-rhel8-beta/rhel:8beta-$IMGBUILD
-rhel8-beta/rhel-tools:8beta-$IMGBUILD
-rhel8-beta/rsyslog:VERSION-$IMGBUILD
-rhel8-beta/php...
+rhel8_beta/rhel:8beta-$IMGBUILD
+rhel8_beta/rhel-tools:8beta-$IMGBUILD
+rhel8_beta/rsyslog:VERSION-$IMGBUILD
+rhel8_beta/php...
 ...
 ```
 
