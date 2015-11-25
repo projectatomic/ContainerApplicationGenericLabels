@@ -4,7 +4,7 @@ Red Hat built images will include a fields in the metadata to identify the offic
 
 ## Naming and versioning related labels
 
-The Fields are:
+The Fields, all required, are:
 
 | Name           | Description                        |
 |----------------|------------------------------------|
@@ -30,21 +30,21 @@ $authoritative-source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REP
 
 ## Other labels
 
-| Name           | Description                        |
-|----------------|------------------------------------|
-| com.redhat.build-host | The build host used to create an image for internal use and auditability, similar to the use in RPM. |
-| distribution-scope | Scope of intended distribution of the image. For Red Hat product images this will be set to `"authoritative-source-only"`. Other possible values <ul><li>`private`: No public redistribution intended</li><li>`authoritative-source-only`: Redistribution only from the source listed in the `"authoritative-source"` label</li><li>`restricted`: Redistribution only with permission</li><li>`public`: No redistribution limits beyond licenses</li></ul> |
-| build-date     | Date/Time image was built as [RFC 3339](https://tools.ietf.org/html/rfc3339) date-time (Optional) |
-| url            | (Optional) Url with more information on the image |
-| summary        | (Required) Short Description of the image |
-| description    | (Optional) Detailed description of the image |
-| vcs-type       | (Optional) The type of version control used by the container source. Generally one of git, hg, svn, bzr, cvs |
-| vcs-url        | (Optional) URL of the version control repository |
-| vcs-ref        | (Optional) A 'reference' within the version control repository; e.g. a git commit, or a subversion branch |
-| io.k8s.description | (Optional) Description of the container displayed in Kubernetes |
-| io.k8s.display-name | (Optional) Name of the container displayed in Kubernetes |
-| io.openshift.expose-services | (Optional) port:service pairs separated with comma, e.g. `"8080:http,8443:https"` |
-| io.openshift.tags | (Optional) tags used by searching engine, e.g. `"builder,php,php56,rh-php56"` |
+| Name           | Required | Description                        |
+|----------------|----------|------------------------------------|
+| com.redhat.build-host | yes | The build host used to create an image for internal use and auditability, similar to the use in RPM. |
+| distribution-scope | yes | Scope of intended distribution of the image. For Red Hat product images this will be set to `"authoritative-source-only"`. Possible values <ul><li>`private`: No public redistribution intended</li><li>`authoritative-source-only`: Redistribution only from the source listed in the `"authoritative-source"` label</li><li>`restricted`: Redistribution only with permission</li><li>`public`: No redistribution limits beyond licenses</li></ul> |
+| build-date     | no | Date/Time image was built as [RFC 3339](https://tools.ietf.org/html/rfc3339) date-time |
+| url            | no | Url with more information on the image |
+| summary        | yes | Short Description of the image |
+| description    | no | Detailed description of the image |
+| vcs-type       | no | The type of version control used by the container source. Generally one of git, hg, svn, bzr, cvs |
+| vcs-url        | no | URL of the version control repository |
+| vcs-ref        | no | A 'reference' within the version control repository; e.g. a git commit, or a subversion branch |
+| io.k8s.description | no |  Description of the container displayed in Kubernetes |
+| io.k8s.display-name | no | Name of the container displayed in Kubernetes |
+| io.openshift.expose-services | no | port:service pairs separated with comma, e.g. `"8080:http,8443:https"` |
+| io.openshift.tags | no | tags used by searching engine, e.g. `"builder,php,php56,rh-php56"` |
 
 ### Examples
 
