@@ -2,7 +2,7 @@
 
 The Nulecule Specification has been a place to experiment with packaging
 multi container applications. To open the opportunity to generate more of the
-meta information used within a Nulecule file, a set of LABLE to be used on
+meta information used within a Nulecule file, a set of LABLEs to be used on
 container images is proposed.
 
 ## Application runtime configuration
