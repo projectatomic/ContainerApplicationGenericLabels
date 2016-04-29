@@ -70,7 +70,7 @@ Based on the v1 Docker naming scheme `REGISTRY[:PORT]/USER/REPO[:TAG]`, Red Hat 
 
 ```
 registry.access.redhat.com/
- PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR][_$RELEASE]/
+ PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR][--$RELEASE]/
  REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]
  :$COMPVER-$IMGBUILD
 ```
@@ -182,10 +182,10 @@ Until an automatic redirect solution can be implemented, or the approach can be 
 Beta releases will be treated as separate 'generations' at the first level. Example:
 
 ```
-rhel8_beta/rhel:8beta-$IMGBUILD
-rhel8_beta/rhel-tools:8beta-$IMGBUILD
-rhel8_beta/rsyslog:$VERSION-$IMGBUILD
-rhel8_beta/php...
+rhel8-beta/rhel:8beta-$IMGBUILD
+rhel8-beta/rhel-tools:8beta-$IMGBUILD
+rhel8-beta/rsyslog:$VERSION-$IMGBUILD
+rhel8-beta/php...
 ...
 ```
 
@@ -194,8 +194,8 @@ rhel8_beta/php...
 Tech Preview releases are treated similarly to Beta. Example:
 
 ```
-rhel8_tech_preview/rhel:$VERSION-$IMGBUILD
-rhel8_tech_preview/rhel-tools:$VERSION-$IMGBUILD
+rhel8-tech-preview/rhel:$VERSION-$IMGBUILD
+rhel8-tech-preview/rhel-tools:$VERSION-$IMGBUILD
 ...
 ```
 
@@ -335,8 +335,8 @@ Red Hat Software Collections containers use the following values:
 Beta releases will be treated as separate 'generations' at the first level. Example:
 
 ```
-rhscl_beta/php-56-rhel7:5.6-3
-rhscl_beta/postgresql-94-rhel7:9.4-1
+rhscl-beta/php-56-rhel7:5.6-3
+rhscl-beta/postgresql-94-rhel7:9.4-1
 ...
 ```
 
