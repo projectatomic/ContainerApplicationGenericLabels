@@ -45,10 +45,6 @@ $authoritative-source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REP
 | io.k8s.display-name | no | Name of the container displayed in Kubernetes |
 | io.openshift.expose-services | no | port:service pairs separated with comma, e.g. `"8080:http,8443:https"` |
 | io.openshift.tags | no | tags used by searching engine, e.g. `"builder,php,php56,rh-php56"` |
-| io.openshift.env-KEY | no | Required environment variable. Creates parameter named "KEY". If no value is provided user input required. |
-| io.openshift.podhook.pre | no | Pre exec pod-based lifecycle hook command. See [documentation](https://docs.openshift.org/latest/dev_guide/deployments.html#pod-based-lifecycle-hook) |
-| io.openshift.podhook.post | no | Post exec pod-based lifecycle hook command. See [documentation](https://docs.openshift.org/latest/dev_guide/deployments.html#pod-based-lifecycle-hook) |
-
 
 ### Examples
 
@@ -116,3 +112,5 @@ $authoritative-source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REP
                     "io.openshift.expose-services="8080:http",
                     "io.openshift.tags="builder,php,php56,rh-php56"
                 },
+
+
