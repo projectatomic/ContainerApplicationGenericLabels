@@ -21,6 +21,7 @@ The following types of data are being considered:
  |-------------|----------------------------------------|
  | help        | Command to run the help command of the image|
  | run         | Command to run the image|
+ | run_opts_file | Path to a file containing options that will be used in 'run' command in place of ${RUN_OPTS}|
  | uninstall   | Command to uninstall the image|
  | install     | Command to install the image|
  | stop        | Command to execute before stopping container|
