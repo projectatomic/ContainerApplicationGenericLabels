@@ -37,6 +37,8 @@ The registry content is basically simply a mapping of names tagged, this does no
 
 The REPO is indeed a repository containing a number of explicitly tagged and a number of hidden layers. An 'IMAGE' is a specific layer-complete branch within a repository. For simplification we use 'image' and 'repository' almost synonymously although they are not the same. Eg. different images can be tagged into a single repository.
 
+Generally, a repository only contains one 'stream' of image updates; the same image is rebuilt and distributed as bugs and flaws are fixed. There are some exceptions, wuch as the 'rhel' repository, which contains both RHEL 6 and RHEL 7 images, and a handful of OpenShift repositories have a similar model. This is documented where appropriate.
+
 Note: Future versions of Docker will remove the limitation on only two levels.
 
 ## Problem Statements
@@ -171,7 +173,7 @@ One thing to keep in mind is that the `:TAG` part is not regularly used by most 
 
 ## Latest TAG
 
-The `:latest` tag will always be set to the highest version image in the repository. In cases of multi-major-version repositories this is the newest GA image in the newest major. E.g. `/library/rhel:latest` would point to the newest RHEL 7 image.
+The `:latest` tag will always be set to the highest version image in the repository. In cases of multi-major-version repositories this is the newest GA image in the newest major. E.g. `/library/rhel:latest` would point to the newest RHEL 7 image. 
 
 ## Compatibility TAGs
 
