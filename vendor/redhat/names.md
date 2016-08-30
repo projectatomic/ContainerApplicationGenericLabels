@@ -37,6 +37,8 @@ The registry content is basically simply a mapping of names tagged, this does no
 
 The REPO is indeed a repository containing a number of explicitly tagged and a number of hidden layers. An 'IMAGE' is a specific layer-complete branch within a repository. For simplification we use 'image' and 'repository' almost synonymously although they are not the same. Eg. different images can be tagged into a single repository.
 
+Generally, a repository only contains one 'stream' of image updates; the same image is rebuilt and distributed as bugs and flaws are fixed. There are some exceptions, wuch as the 'rhel' repository, which contains both RHEL 6 and RHEL 7 images, and a handful of OpenShift repositories have a similar model. This is documented where appropriate.
+
 Note: Future versions of Docker will remove the limitation on only two levels.
 
 ## Problem Statements
@@ -70,7 +72,7 @@ Based on the v1 Docker naming scheme `REGISTRY[:PORT]/USER/REPO[:TAG]`, Red Hat 
 
 ```
 registry.access.redhat.com/
- PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR][_$RELEASE]/
+ PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR][--$RELEASE]/
  REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]
  :$COMPVER-$IMGBUILD
 ```
@@ -171,7 +173,7 @@ One thing to keep in mind is that the `:TAG` part is not regularly used by most 
 
 ## Latest TAG
 
-The `:latest` tag will always be set to the highest version image in the repository. In cases of multi-major-version repositories this is the newest GA image in the newest major. E.g. `/library/rhel:latest` would point to the newest RHEL 7 image.
+The `:latest` tag will always be set to the highest version image in the repository. In cases of multi-major-version repositories this is the newest GA image in the newest major. E.g. `/library/rhel:latest` would point to the newest RHEL 7 image. 
 
 ## Compatibility TAGs
 
@@ -182,10 +184,10 @@ Until an automatic redirect solution can be implemented, or the approach can be 
 Beta releases will be treated as separate 'generations' at the first level. Example:
 
 ```
-rhel8_beta/rhel:8beta-$IMGBUILD
-rhel8_beta/rhel-tools:8beta-$IMGBUILD
-rhel8_beta/rsyslog:$VERSION-$IMGBUILD
-rhel8_beta/php...
+rhel8-beta/rhel:8beta-$IMGBUILD
+rhel8-beta/rhel-tools:8beta-$IMGBUILD
+rhel8-beta/rsyslog:$VERSION-$IMGBUILD
+rhel8-beta/php...
 ...
 ```
 
@@ -194,8 +196,8 @@ rhel8_beta/php...
 Tech Preview releases are treated similarly to Beta. Example:
 
 ```
-rhel8_tech_preview/rhel:$VERSION-$IMGBUILD
-rhel8_tech_preview/rhel-tools:$VERSION-$IMGBUILD
+rhel8-tech-preview/rhel:$VERSION-$IMGBUILD
+rhel8-tech-preview/rhel-tools:$VERSION-$IMGBUILD
 ...
 ```
 
@@ -335,8 +337,8 @@ Red Hat Software Collections containers use the following values:
 Beta releases will be treated as separate 'generations' at the first level. Example:
 
 ```
-rhscl_beta/php-56-rhel7:5.6-3
-rhscl_beta/postgresql-94-rhel7:9.4-1
+rhscl-beta/php-56-rhel7:5.6-3
+rhscl-beta/postgresql-94-rhel7:9.4-1
 ...
 ```
 
