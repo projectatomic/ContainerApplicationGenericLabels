@@ -36,7 +36,7 @@ The following types of data are being considered:
  | release     | Release Number for this version|
  | architecture| Architecture for the image|
  | build-date  | Date/Time image was built as [RFC 3339](https://tools.ietf.org/html/rfc3339) date-time|
- | vendor      | Owner of the image| 
+ | vendor      | Owner of the image|
  | url         | Url with more information on the image|
  | summary     | Short Description of the image|
  | description | Detailed description of the image|
@@ -71,3 +71,26 @@ The following types of data are being considered:
 * The intended scope of distribution for the image.
 * Allows a user to define the intended scope of distribution. This addresses the end-user case of internal builds vs. public content and the use case of a vendor like Red Hat that provides content streams under subscription agreements - which is different from the license(s) of the image content.
 * In combination with the 'authoritative-source-url' and 'name' labels allows automatic redirect to the authoritative source.
+
+## Signing Server Metadata "sigstore" Image
+
+Signing server metadata may be served by a special image in a repository. The image shall be named "sigstore" and contain the following labels, all required:
+
+| Name               | Description                            |
+|--------------------|----------------------------------------|
+| sigstore-url       | The signature server URL, including port |
+| sigstore-type      | Signature server type, either "docker" (static web server) or "atomic" (Atomic Registry and OpenShift API) |
+| pubkey-id          | The public key ID in the form of an email address |
+| pubkey-fingerprint | The public key fingerprint, typically a long hexidecimal string |
+| pubkey-url         | The URL to download the public key |
+
+Example Dockerfile:
+
+```
+FROM scratch
+LABEL sigstore-url="sigstore.example.com:8443" \
+      sigstore-type="docker" \
+      pubkey-id="security@example.com" \
+      pubkey-fingerprint="B3B04F8CF186436EF8F1CDAD7C6ACC9EE3A31016" \
+      pubkey-url="https://pgp.mit.edu/pks/lookup?op=get&search=0xFD5EB4DB480717ED"
+```
