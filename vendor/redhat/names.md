@@ -292,7 +292,7 @@ Red Hat uses the LABEL metadata field to provide additional information for imag
   * Name of the ISV
 * `"version"`
   * Version part of the TAG in the primary name.
-* `"authoritative-source"`
+* `"authoritative-source-url"`
   * The official registry the ISV is publishing the images to.
 * `"distribution-scope"`
   * Distribution scope for the image
