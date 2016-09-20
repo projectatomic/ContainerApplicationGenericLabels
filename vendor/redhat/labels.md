@@ -10,7 +10,7 @@ The Fields, all required, are:
 |----------------|------------------------------------|
 | architecture | Target hardware architecture the image is built for in the Red Hat terminology inherited from RPM. **Note**: there is an upstream Architecture field, but it uses a different terminology. We should work upstream to sync. For now we have to keep the two fields in sync. Current valid value is `"x86_64"` |
 | name         | The primary name of the image (relative path without TAG): `PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/ REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]` |
-| authoritative-source | The authoritative registry in which the image is published. For Red Hat this is `"registry.access.redhat.com"`. This allows e.g. to verify if a newer version is available independent of local tagging. For ISVs this is optional. |
+| authoritative-source-url | The authoritative registry in which the image is published. For Red Hat this is `"registry.access.redhat.com"`. This allows e.g. to verify if a newer version is available independent of local tagging. For ISVs this is optional. |
 | release        | The build of the image, `$IMGBUILD` |
 | vendor         | "Red Hat, Inc." |
 | version        | Version part of the TAG in the primary name, `$COMPVER` |
@@ -19,13 +19,13 @@ The Fields, all required, are:
 To reconstruct the authoritative source for an image, docker pull...
 
 ```
-$authoritative-source/$name:$version-$release
+$authoritative-source-url/$name:$version-$release
 ```
 
 In other words:
 
 ```
-$authoritative-source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]:$COMPVER-$IMGBUILD
+$authoritative-source-url[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]:$COMPVER-$IMGBUILD
 ```
 
 ## Other labels
@@ -33,7 +33,7 @@ $authoritative-source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REP
 | Name           | Required | Description                        |
 |----------------|----------|------------------------------------|
 | com.redhat.build-host | yes | The build host used to create an image for internal use and auditability, similar to the use in RPM. |
-| distribution-scope | yes | Scope of intended distribution of the image. For Red Hat product images this will be set to `"authoritative-source-only"`. Possible values <ul><li>`private`: No public redistribution intended</li><li>`authoritative-source-only`: Redistribution only from the source listed in the `"authoritative-source"` label</li><li>`restricted`: Redistribution only with permission</li><li>`public`: No redistribution limits beyond licenses</li></ul> |
+| distribution-scope | yes | Scope of intended distribution of the image. For Red Hat product images this will be set to `"authoritative-source-only"`. Possible values <ul><li>`private`: No public redistribution intended</li><li>`authoritative-source-only`: Redistribution only from the source listed in the `"authoritative-source-url"` label</li><li>`restricted`: Redistribution only with permission</li><li>`public`: No redistribution limits beyond licenses</li></ul> |
 | build-date     | no | Date/Time image was built as [RFC 3339](https://tools.ietf.org/html/rfc3339) date-time |
 | url            | no | Url with more information on the image |
 | summary        | yes | Short Description of the image |
@@ -52,7 +52,7 @@ $authoritative-source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REP
 
         "Labels": {
                     "architecture": "x86_64",
-                    "authoritative-source:" "registry.access.redhat.com",
+                    "authoritative-source-url:" "registry.access.redhat.com",
                     "com.redhat.build-host": "rcm-img04.build.eng.bos.redhat.com",
                     "com.redhat.component": "rhel-server-docker",
                     "name": "rhel7/rhel",
@@ -67,7 +67,7 @@ $authoritative-source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REP
 
         "Labels": {
                     "architecture": "x86_64",
-                    "authoritative-source": "registry.access.redhat.com"
+                    "authoritative-source-url": "registry.access.redhat.com"
                     "com.redhat.build-host": "rcm-img04.build.eng.bos.redhat.com",
                     "com.redhat.component": "rsyslog-docker",
                     "name": "rhel7/rsyslog",
@@ -82,7 +82,7 @@ $authoritative-source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REP
 
         "Labels": {
                     "architecture": "x86_64",
-                    "authoritative-source": "registry.access.redhat.com"
+                    "authoritative-source-url": "registry.access.redhat.com"
                     "com.redhat.build-host": "rcm-img04.build.eng.bos.redhat.com",
                     "com.redhat.component": "php-docker",
                     "name": "rhel7/php",
@@ -97,7 +97,7 @@ $authoritative-source[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REP
 
         "Labels": {
                     "architecture": "x86_64",
-                    "authoritative-source": "registry.access.redhat.com"
+                    "authoritative-source-url": "registry.access.redhat.com"
                     "com.redhat.build-host": "rcm-img04.build.eng.bos.redhat.com",
                     "com.redhat.component": "rh-php56-docker",
                     "name": "rhscl/php-56-rhel7",
