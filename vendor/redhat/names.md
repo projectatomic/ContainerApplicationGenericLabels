@@ -194,7 +194,7 @@ rhel8-beta/php...
 ## Tech Preview Releases
 
 Tech Preview releases are treated similarly to GA. 
-There need be no special signifier in the repoistory name that an
+There need be no special signifier in the repository name that an
 image is tech preview, as the images (like rpms) are treated as GA 
 in terms of signing. Tech Preview status should be handled at the Documentation
 Level.
