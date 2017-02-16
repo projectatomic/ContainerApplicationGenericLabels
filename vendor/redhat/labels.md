@@ -38,6 +38,7 @@ $authoritative-source-url[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]
 | url            | no | Url with more information on the image |
 | summary        | yes | Short Description of the image |
 | description    | no | Detailed description of the image |
+| maintainer     | no | Name and e-mail for the person who is primary contact for the container image. Similar to `MAINTAINER` instruction [which is obsolete](https://github.com/docker/docker/pull/25466) since docker 1.13 |
 | vcs-type       | no | The type of version control used by the container source. Generally one of git, hg, svn, bzr, cvs |
 | vcs-url        | no | URL of the version control repository |
 | vcs-ref        | no | A 'reference' within the version control repository; e.g. a git commit, or a subversion branch |
