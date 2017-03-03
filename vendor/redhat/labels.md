@@ -4,7 +4,7 @@ Red Hat built images will include a fields in the metadata to identify the offic
 
 ## Naming and versioning related labels
 
-The Fields, all required, are:
+The Fields, all required even the other labels:
 
 | Name           | Description                        |
 |----------------|------------------------------------|
