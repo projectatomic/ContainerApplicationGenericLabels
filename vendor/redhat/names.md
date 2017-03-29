@@ -48,7 +48,7 @@ Note: Future versions of Docker will remove the limitation on only two levels.
 * Which does not always map to existing best practices and
 * We will not be able to avoid name conflicts between our products.
 * registry.access.redhat.com is a bit long, a shorter model would be preferrable. .io appears to be the common TLD for these kind of services.
-* The  naming and versioning for Platform images (images meant for users to build other images on top of) has to be extremely stable and predicatble to allow reliable tracking without imlicit changes e.g. of :latest on people building images on top.
+* The  naming and versioning for Platform images (images meant for users to build other images on top of) has to be extremely stable and predictable to allow reliable tracking without imlicit changes e.g. of :latest on people building images on top.
 * In many cases the generation of the underlying platform and of the content has significant impact on the user (e.g. software will stop working when the underlying stack moves from RHEL 6 to RHEL 7 or from Python 2.7 to Python 3)
 * For application images (leaf layers, not meant to be build on top) this is much less of a problem.
 
