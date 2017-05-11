@@ -37,15 +37,15 @@ $authoritative-source-url[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]
 | build-date     | no | Date/Time image was built as [RFC 3339](https://tools.ietf.org/html/rfc3339) date-time |
 | url            | no | Url with more information on the image |
 | summary        | yes | Short Description of the image |
-| description    | no | Detailed description of the image |
+| description    | yes | Detailed description of the image |
 | maintainer     | no | Name and e-mail for the person who is primary contact for the container image. Similar to `MAINTAINER` instruction [which is obsolete](https://github.com/docker/docker/pull/25466) since docker 1.13 |
 | vcs-type       | no | The type of version control used by the container source. Generally one of git, hg, svn, bzr, cvs |
 | vcs-url        | no | URL of the version control repository |
 | vcs-ref        | no | A 'reference' within the version control repository; e.g. a git commit, or a subversion branch |
 | io.k8s.description | no |  Description of the container displayed in Kubernetes |
-| io.k8s.display-name | no | Name of the container displayed in Kubernetes |
+| io.k8s.display-name | yes | Name of the container displayed in Kubernetes |
 | io.openshift.expose-services | no | port:service pairs separated with comma, e.g. `"8080:http,8443:https"` |
-| io.openshift.tags | no | tags used by searching engine, e.g. `"builder,php,php56,rh-php56"` |
+| io.openshift.tags | yes | tags used by searching engine, e.g. `"builder,php,php56,rh-php56"` |
 
 ### Examples
 
