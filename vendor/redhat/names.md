@@ -127,18 +127,18 @@ registry.access.redhat.com/rhscl/postgresql-92-rhel7:9.2-4
 
 The internal root of the naming is the naming of the dist-git repo that contains the Dockerfile. So that naming must follow the above schema (without the tagging as that will be handled automatically)
 
-dist-git repos should be named `$REPO-docker`.
+dist-git repos should be named `$REPO-container`.
 
 The product context is derived from koji.
 
 Exceptions:
 
-RHEL Server base images. Internal name is rhel-server-docker, external name is just rhel
+RHEL Server base images. Internal name is rhel-server-container, external name is just rhel
 
 Examples:
 
-rhel-server-docker -> rhel$MAJOR/rhel:TAG  
-rhel-tools-docker -> rhel$MAJOR/rhel-tools:TAG 
+rhel-server-container -> rhel$MAJOR/rhel:TAG  
+rhel-tools-container -> rhel$MAJOR/rhel-tools:TAG 
 
 ## Primary Product Images in library/
 
