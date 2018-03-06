@@ -72,7 +72,7 @@ Based on the v1 Docker naming scheme `REGISTRY[:PORT]/USER/REPO[:TAG]`, Red Hat 
 
 ```
 registry.access.redhat.com/
- PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR][--$RELEASE]/
+ PRODUCT[[-]$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR][--$RELEASE]/
  REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]
  :$COMPVER-$IMGBUILD
 ```
@@ -84,6 +84,7 @@ The spaces (" "s) after the are just for formating and not part of the actual sc
 * $PRODUCTGEN
   * The major relevant generation of the product that is relevant for user experience in the context of the images if needed - for RHEL this is the major release (e.g. RHEL 7)
   *The minor release of a product will only be used if it is significant for the respective product from a user point of view. Example: RHEL minor releases are not significant at that level due to the life cycle guarantees given with RHEL, while with SCLs no versions are relevant at this level, so it's simply scl/*
+  * Optionally this part may be separated from PRODUCT by hyphen ("-").
 * $RELEASE
   * Indicate specific release milestone. Example is beta or tech preview releases which can be used to deliver pre-release content with different levels of support.
 * REPO
@@ -121,6 +122,10 @@ registry.access.redhat.com/rhscl/ruby-200-rhel7:2.0-15
 
 ```
 registry.access.redhat.com/rhscl/postgresql-92-rhel7:9.2-4
+```
+
+```
+registry.access.redhat.com/redhat-sso-7/sso71-openshift:1.3-3
 ```
 
 ## Koji Naming
@@ -203,7 +208,7 @@ Level.
 
 ```
 REGISTRY/
- PRODUCT$PRODUCTGEN[--$PLATFORMDIFFERENTIATOR]/
+ PRODUCT[-]$PRODUCTGEN[--$PLATFORMDIFFERENTIATOR]/
  REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]
  :$COMPVER-$IMGBUILD
 ```
@@ -212,7 +217,7 @@ The mapping to Bugzilla (or Jira) components will follow REPO-docker within the 
 
 
 * `REGISTRY` Ignored in Bugzilla
-* `PRODUCT[$PRODUCTGEN]` Maps to the product/version in Bugzilla, other metadata such as
+* `PRODUCT[[-]$PRODUCTGEN]` Maps to the product/version in Bugzilla, other metadata such as
 * `REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]`
   * `REPO[--$CONTENTGENERATION]` maps to the component with -docker appended
   * `PLATFORMDIFFERNTIATOR` is not part of the formal mapping
@@ -252,14 +257,14 @@ A key point is, that ISV images provided for RHEL must carry a reference to the 
 **Option 1**: level1 of the path
 
 ```
-docker.io/$PRODUCT[$PRODUCTGEN]--$PLATFORMDIFFERENTIATOR/$REPO[$PRODUCTGEN]:$VERSION-$BUILD
+docker.io/$PRODUCT[[-]$PRODUCTGEN]--$PLATFORMDIFFERENTIATOR/$REPO[[-]$PRODUCTGEN]:$VERSION-$BUILD
 ```
 
 **Option 2**: level2 of the path
 
 ```
-docker.io/$ISVUSER/$PRODUCT[$PRODUCTGEN]--$PLATFORMDIFFERENTIATOR:$VERSION-$BUILD
-docker.io/library/$PRODUCT[$PRODUCTGEN]--$PLATFORMDIFFERENTIATOR:$VERSION-$BUILD
+docker.io/$ISVUSER/$PRODUCT[[-]$PRODUCTGEN]--$PLATFORMDIFFERENTIATOR:$VERSION-$BUILD
+docker.io/library/$PRODUCT[[-]$PRODUCTGEN]--$PLATFORMDIFFERENTIATOR:$VERSION-$BUILD
 ```
 
 Examples:
@@ -283,7 +288,7 @@ Please note, that at this point Red Hat has *no* plans to actually offer any ima
 Red Hat uses the LABEL metadata field to provide additional information for images. All LABELs that are not actively used by the ISV must be overwritten with "". The following labels must be set appropriately to pass certification:
 
 * `"name"`
-  * The primary name of the image (relative path w/o TAG): `PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR] /REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]`
+  * The primary name of the image (relative path w/o TAG): `PRODUCT[[-]$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR] /REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]`
 * `"release"`
   * The build of the image, `$IMGBUILD`
 * `"vendor"`
@@ -346,7 +351,7 @@ rhscl-beta/postgresql-94-rhel7:9.4-1
 The following rules are used for Bugzilla mapping in Red Hat Software Collections:
 
 * `REGISTRY` Ignored in Bugzilla
-* `PRODUCT[$PRODUCTGEN]` is not part of the formal mapping
+* `PRODUCT[[-]$PRODUCTGEN]` is not part of the formal mapping
 * `REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]`
   * `REPO[--$CONTENTGENERATION]` maps to the Software Collection name with -docker appended
   * `PLATFORMDIFFERNTIATOR` is not part of the formal mapping
