@@ -208,13 +208,13 @@ REGISTRY/
  :$COMPVER-$IMGBUILD
 ```
 
-The mapping to Bugzilla (or Jira) components will follow REPO-docker within the respective product. Details as follows:
+The mapping to Bugzilla (or Jira) components will follow REPO-container within the respective product. Details as follows:
 
 
 * `REGISTRY` Ignored in Bugzilla
 * `PRODUCT[$PRODUCTGEN]` Maps to the product/version in Bugzilla, other metadata such as
 * `REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]`
-  * `REPO[--$CONTENTGENERATION]` maps to the component with -docker appended
+  * `REPO[--$CONTENTGENERATION]` maps to the component with -container appended
   * `PLATFORMDIFFERNTIATOR` is not part of the formal mapping
 * `:$COMPVER` Maps to the version of the component
 * `-$IMGBUILD` is not part of the formal mapping
@@ -229,7 +229,7 @@ maps to
 
 * Product: Red Hat Enterprise Linux 7
 * Version: 7.0
-* Component: php-docker
+* Component: php-container
 
 ## ISV Namespaces
 
