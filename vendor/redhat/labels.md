@@ -14,7 +14,7 @@ The Fields, all required, are:
 | release        | The build of the image, `$IMGBUILD` |
 | vendor         | "Red Hat, Inc." |
 | version        | Version part of the TAG in the primary name, `$COMPVER` |
-| com.redhat.component | The component in Bugzilla or other tracker representing the image. Can be used to file bugs. |
+| com.redhat.component | The name of the Brew package for the container being built |
 
 To reconstruct the authoritative source for an image, docker pull...
 
