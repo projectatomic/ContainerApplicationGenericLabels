@@ -9,7 +9,7 @@ The Fields, all required, are:
 | Name           | Description                        |
 |----------------|------------------------------------|
 | architecture | Target hardware architecture the image is built for in the Red Hat terminology inherited from RPM. **Note**: there is an upstream Architecture field, but it uses a different terminology. We should work upstream to sync. For now we have to keep the two fields in sync. Current valid value is `"x86_64"` |
-| name         | The primary name of the image (relative path without TAG): `PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/ REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]` |
+| name         | The primary name of the image (relative path without TAG): `PRODUCT[[-]$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/ REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]` |
 | authoritative-source-url | The authoritative registry in which the image is published. For Red Hat this is `"registry.access.redhat.com"`. This allows e.g. to verify if a newer version is available independent of local tagging. For ISVs this is optional. |
 | release        | The build of the image, `$IMGBUILD` |
 | vendor         | "Red Hat, Inc." |
@@ -25,7 +25,7 @@ $authoritative-source-url/$name:$version-$release
 In other words:
 
 ```
-$authoritative-source-url[:PORT]/PRODUCT[$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]:$COMPVER-$IMGBUILD
+$authoritative-source-url[:PORT]/PRODUCT[[-]$PRODUCTGEN][--$PLATFORMDIFFERENTIATOR]/REPO[--$CONTENTGENERATION][--$PLATFORMDIFFERENTIATOR]:$COMPVER-$IMGBUILD
 ```
 
 ## Other labels
