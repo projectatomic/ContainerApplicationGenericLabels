@@ -44,8 +44,6 @@ $authoritative-source-url[:PORT]/PRODUCT[[-]$PRODUCTGEN][--$PLATFORMDIFFERENTIAT
 | vcs-ref        | no | A 'reference' within the version control repository; e.g. a git commit, or a subversion branch |
 | io.k8s.description | no |  Description of the container displayed in Kubernetes |
 | io.k8s.display-name | yes | Name of the container displayed in Kubernetes |
-| io.openshift.expose-services | no | port:service pairs separated with comma, e.g. `"8080:http,8443:https"` |
-| io.openshift.tags | yes | tags used by searching engine, e.g. `"builder,php,php56,rh-php56"` |
 
 ### Examples
 
@@ -110,8 +108,6 @@ $authoritative-source-url[:PORT]/PRODUCT[[-]$PRODUCTGEN][--$PLATFORMDIFFERENTIAT
                     "url": "http://github.com/sclorg/rhscl-dockerfiles",
                     "io.k8s.description="Platform for building and running PHP 5.6 applications",
                     "io.k8s.display-name="Apache 2.4 with PHP 5.6",
-                    "io.openshift.expose-services="8080:http",
-                    "io.openshift.tags="builder,php,php56,rh-php56"
                 },
 
 
