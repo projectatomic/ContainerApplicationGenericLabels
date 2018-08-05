@@ -27,7 +27,7 @@ The following types of data are being considered:
  | stop        | Command to execute before stopping container|
  | debug       | Command to run the image with debugging turned on|
 
-2. Labels Names used to describe the application/image
+1. Labels Names used to describe the application/image
 
  | Name        | Description                            |
  |-------------|----------------------------------------|
@@ -46,8 +46,9 @@ The following types of data are being considered:
  | authoritative-source-url | The authoritative location in which the image is published|
  | distribution-scope  | Intended scope of distribution for image (see below for possible values)|
  | changelog-url | URL of a page containing release notes for the image|
+ | config       | A namespace for defining the application configuration (see below for possible values)|
 
-3. Possible values of distribution-scope field
+1. Possible values of distribution-scope field
 
  |Name         | Description |
  |-------------|-------------|
@@ -56,10 +57,24 @@ The following types of data are being considered:
  | restricted  | Redistribution only with permission|
  | public      | No redistribution limits beyond licenses|
 
-4. Custom labels may be defined by a namespace prefix using reverse DNS notation of a domain controlled by the author. For example, `com.redhat.access`.
+1. Possible values of config field. Application configuration may be defined or hinted using the config label. This allows documentation and tooling to provide parameterization control. Currently, environment variables are the only parameter, with three attributes.
+
+ |Name         | Description |
+ |-------------|-------------|
+ | config.env.KEY             | Default value. Use empty string "" if no default.|
+ | config.env.KEY.description | Description|
+ | config.env.KEY.required    | Required boolean, true or false.|
+Example:
+
+        LABEL config.env.foo=bar \
+              config.env.foo.description="Lorem ipsum dolor sit amet" \
+              config.env.foo.required=true
+
+1. Custom labels may be defined by a namespace prefix using reverse DNS notation of a domain controlled by the author. For example, `com.redhat.access`.
 
         LABEL io.openshift.expose-services="8080:http" \
               io.openshift.tags="builder,nodejs,nodejs010"
+
 
 ## Details on Labels
 
